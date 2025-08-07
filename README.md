@@ -20,8 +20,40 @@ Implementation using Python code
 Testing the server and client 
 
 ## PROGRAM:
-<img width="1919" height="456" alt="Screenshot 2025-08-07 091947" src="https://github.com/user-attachments/assets/e6d4f164-53d7-4b22-b1d2-47110a76a685" />
+### Server.py
+```
+import socket
+HOST = '127.0.0.1' 
+PORT = 65432 
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    print(f"Server started. Listening on {HOST}:{PORT}...")
+    conn, addr = s.accept()
+    with conn:
+        print(f"Connected by {addr}")
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(data)
 
+```
+### Client.py
+```
+import socket
+HOST = '127.0.0.1' 
+PORT = 65432
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    while True:
+        message = input("Enter message (or 'exit' to quit): ")
+        if message.lower() == 'exit':
+            break
+        s.sendall(message.encode())
+        data = s.recv(1024)
+        print(f"Echo from server: {data.decode()}")
+```
 ## OUTPUT:
 <img width="1915" height="498" alt="Screenshot 2025-08-07 091934" src="https://github.com/user-attachments/assets/7347edf4-0b7a-46d9-80d9-a3babc609daf" />
 
