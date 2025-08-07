@@ -20,8 +20,10 @@ Implementation using Python code
 Testing the server and client 
 
 ## PROGRAM:
+<img width="1919" height="456" alt="Screenshot 2025-08-07 091947" src="https://github.com/user-attachments/assets/e6d4f164-53d7-4b22-b1d2-47110a76a685" />
 
 ## OUTPUT:
+<img width="1915" height="498" alt="Screenshot 2025-08-07 091934" src="https://github.com/user-attachments/assets/7347edf4-0b7a-46d9-80d9-a3babc609daf" />
 
 ## RESULT:
 The program is executed successfully
